@@ -4,7 +4,16 @@ import axios from 'axios';
 
 function App() {
   const [city, setCity] = useState("");
-  
+  const [isloading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    axios.get(`https://goweather.herokuapp.com/weather/${city}`)
+          .then((response) => {
+            console.log(response)
+          })
+  }
+
   return (
     <div className="App">
       <div className='input-container'>
@@ -14,7 +23,7 @@ function App() {
           placeholder='Enter a City' 
           onChange={(e) => setCity(e.target.value)}
           />
-        <button>Get Weather</button>
+        <button onClick={handleClick}>Get Weather</button>
       </div>
     </div>
   );
