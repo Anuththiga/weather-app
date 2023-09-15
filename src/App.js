@@ -8,6 +8,7 @@ function App() {
   const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [weatherData, setWeatherData] = useState({});
+  const [citySearched, setCitySearched] = useState("");
   const [showData, setShowData] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
   const [icon, setIcon] = useState("");
@@ -16,6 +17,7 @@ function App() {
     setIsLoading(true);
     axios.get(`https://goweather.herokuapp.com/weather/${city}`)
           .then((response) => {
+            setCitySearched(city);
             setIsLoading(false);
             setWeatherData(response.data);
             determineIcon(response.data);
@@ -56,7 +58,7 @@ function App() {
         {isLoading && <h1>Data Loading...</h1>}
         {showData && (
           <div className='data-card'>
-            <h1 className='data-city'>{city}</h1>
+            <h1 className='data-city'>{citySearched}</h1>
             <img className="data-icon" src={icon} alt='icon' />
             <h3 className='data-weather'>{weatherData.description}</h3>
             <h1 className='data-temperature'>{weatherData.temperature}</h1>
