@@ -1,38 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .App {
-  text-align: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  ), url(./Images/background.jpg);
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputs {
+  height: 40px;
+  width: 250px;
+  margin: 20px;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: solid white 2px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+::placeholder {
+  color: white;
+  font-weight: 500;
+}
+
+.inputs:focus {
+  outline: none;
+  border-bottom: solid orange 2px;
+  transform: scale(1.05);
+}
+
+.inputs:hover {
+  transform: scale(1.05);
+  transition: all ease-in-out 0.2s;
+}
+
+button {
+  height: 40px;
+  width: 200px;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: orange;
+}
+
+button:hover {
+  transform: scale(1.05);
+  transition: all ease-in-out 0.2s;
+}
+
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.data-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.data-city {
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 700;
+  color: orange;
+}
+
+.data-weather {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.data-temperature {
+  font-size: 50px;
+  font-weight: 400;
+  color: white;
+}
+
+.forecast-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+}
+
+.left {
+  flex: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  flex: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.right {
+  flex: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left button, .right button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  font-size: 50px;
+  background-color: transparent;
+  color: orange;
+}
+
+.left button:hover, .right button:hover {
+  transform: scale(1.1);
+  transition: all ease-in-out 0.2s;
+}
+
+.forecast-data {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
