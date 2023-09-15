@@ -41,25 +41,25 @@ function App() {
           />
         <button onClick={handleClick}>Get Weather</button>
       </div>
-      <div>
+      <div className='data-container'>
         {isLoading && <h1>Data Loading...</h1>}
         {showData && (
-          <div>
-            <h1>{city}</h1>
-            <h3>{weatherData.description}</h3>
-            <h1>{weatherData.temperature}</h1>
-            <div>
-              <div>
+          <div className='data-card'>
+            <h1 className='data-city'>{city}</h1>
+            <h3 className='data-weather'>{weatherData.description}</h3>
+            <h1 className='data-temperature'>{weatherData.temperature}</h1>
+            <div className='forecast-container'>
+              <div className='left'>
                 <button onClick={decrementDay}> &larr; </button>
               </div>
-              <div>
-                <div>
+              <div className='middle'>
+                <div className='forecast-data'>
                   <h1>Day {weatherData.forecast[currentDay].day}</h1>
                   <h1>{weatherData.forecast[currentDay].temperature}</h1>
                   <h1>{weatherData.forecast[currentDay].wind}</h1>
                 </div>
               </div>
-              <div>
+              <div className='right'>
                 <button onClick={incrementDay}> &rarr; </button>
               </div>
             </div>
