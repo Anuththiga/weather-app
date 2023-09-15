@@ -20,6 +20,16 @@ function App() {
           })
   }
 
+  const decrementDay = () => {
+    if(currentDay == 0) setCurrentDay(2);
+    else setCurrentDay(currentDay - 1);
+  }
+
+  const incrementDay = () => {
+    if(currentDay == 2) setCurrentDay(0);
+    else setCurrentDay(currentDay + 1)
+  }
+
   return (
     <div className="App">
       <div className='input-container'>
@@ -40,17 +50,17 @@ function App() {
             <h1>{weatherData.temperature}</h1>
             <div>
               <div>
-                <button> &larr; </button>
+                <button onClick={decrementDay}> &larr; </button>
               </div>
               <div>
                 <div>
-                  <h1>Day {weatherData.forecast[0].day}</h1>
-                  <h1>{weatherData.forecast[0].temperature}</h1>
-                  <h1>{weatherData.forecast[0].wind}</h1>
+                  <h1>Day {weatherData.forecast[currentDay].day}</h1>
+                  <h1>{weatherData.forecast[currentDay].temperature}</h1>
+                  <h1>{weatherData.forecast[currentDay].wind}</h1>
                 </div>
               </div>
               <div>
-                <button> &rarr; </button>
+                <button onClick={incrementDay}> &rarr; </button>
               </div>
             </div>
           </div>
